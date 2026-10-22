@@ -1,5 +1,7 @@
 from pathlib import Path
 import json
+from questions import NOTES
+from deeper import BELGIC, DORT, ERROR_NOTES
 
 root=Path(__file__).parent
 out=root/'dist'
@@ -99,6 +101,13 @@ dict(title='第一项 · 拣选与弃绝',key='I',ref='弗1:3—14；罗9—11�
 dict(title='第二项 · 基督的死与救赎',key='II',ref='约3:16；罗3:25—26；约10:11、15；林后5:21',intro='神圣洁的公义要求罪得到满足；道成肉身的子承担刑罚。他的死因其位格具有无限价值，福音应向万民无分别宣告。与此同时，救赎并非只买到一种等待人自行启动的可能性：父旨意借子之死确实拯救选民，并赐给他们信心。无限价值、普遍呼召与特别功效必须同时保留。',items='公义要求罪受刑罚|神亲自赐下满足者|基督之死价值无限且足够|无限价值源于他的位格|福音应许须向万民宣告|不信的罪责不在祭的缺陷|信者得救全出于恩典|基督确实救赎并洁净选民|救赎旨意必然成就',errors='只有抽象可能、没有确定拯救|只为父取得重新设约的权利|不为人获得信心|把新约降低为以信心当较易功德|所有人已同样蒙赦|用人意愿最终决定救赎功效|否认基督也为蒙爱者舍命',apply='传福音无需先判断对方是否蒙选。对每一个听者诚恳宣讲悔改相信；对信徒说明，信心本身也是基督救赎的恩惠。'),
 dict(title='第三／四项 · 败坏、归正与方式',key='III/IV',ref='弗2:1—10；约3:1—8；结36:25—27；罗10:14—17',intro='人失去的不只是较佳选择的环境，而是向神的属灵生命。自然之光和律法不能叫死人复活，圣灵借福音更新意志，使人真实而甘心地相信。恩典不把人变成木石，也不绕开讲道、劝勉、教育和圣礼。有效恩召医治人的意志，不取消人的行动。',items='人原本良善却堕落|败坏传及亚当后裔|无重生就不能归向神|自然之光不足以救人|律法显罪而不赐救法|福音成就律法所不能|启示分布出于神自由|福音呼召真诚无伪|拒绝呼召责任在人|归正荣耀归神|圣灵深入更新人的内心|重生如创造和复活|无法穷尽却真实经历|信心是赐下的礼物|恩典不是神欠人的债|恩典使意志恢复并甘心顺服|神使用福音和劝勉等途径',errors='原罪不足以定罪|灵性良善未受堕落影响|人有足够能力自行归正|属灵死亡只是轻微软弱|善用自然之光可获得救恩|圣灵只提供外部劝说|恩典只是给建议而不更新内心|更新可由人的最终决定推翻|恩典与自由意志是并列起因',apply='祷告求神改变人心，同时认真讲道和教养。既然神使用途径，预定不会使宣教多余；既然神使人活，传道人也无需靠操纵情绪制造重生。'),
 dict(title='第五项 · 圣徒蒙保守',key='V',ref='约10:27—30；罗8:28—39；彼前1:3—9；约壹1:8—9',intro='信徒仍有残余罪，可能陷入严重跌倒，但父的旨意、子的代求与圣灵的印记不落空。神恢复人悔改，并使用警戒和应许使人坚忍。确据来自应许、圣灵见证与信心果子，不等于每天相同的主观感觉；救恩稳固不会让罪变得无害。',items='信徒仍有软弱与残余罪|每日谦卑投靠基督|人靠自己不能站立|真实信徒可能严重犯罪|跌倒会损伤确据与群体|神不完全收回圣灵|神使跌倒者真实悔改|保守根植于三一神信实|可以有与信心相称的确据|确据来自应许、见证与果子|信徒经历疑惑争战|确据结出敬畏和感恩|恢复确据使人更谨慎|神藉道、圣礼、劝勉保守|教会珍爱此教义',errors='恒忍只是额外条件而非恩赐|人只获得足够能力自保|真信徒可以最终全然失落|重生者可失去一切属灵生命|今生不可能有持守确据|确据必然使人懈怠|暂时信心与得救信心没有本质区别|失去初次重生后可重新多次重生|否认基督有效祈求信徒持守',apply='跌倒后不靠自我惩罚重新付罪债，而要认罪、接受教会帮助、回到应许和顺服。不要用永蒙保守为持续不悔改开许可证。')]
-data={'hc':[{'day':i+1,'range':r[0],'title':r[1],'text':r[2],'ref':r[3]} for i,r in enumerate(hc)],'bc':[{'article':i+1,'title':r[0],'text':r[1],'ref':r[2]} for i,r in enumerate(bc)],'dort':dort}
+questions=[r.split('|') for r in NOTES.splitlines()]
+assert len(questions)==129 and len(BELGIC)==37
+for i,head in enumerate(dort):
+    head['notes']=DORT[i].split('|')
+    assert len(head['notes'])==len(head['items'].split('|'))
+    head['errorNotes']=ERROR_NOTES[i].split('|')
+    assert len(head['errorNotes'])==len(head['errors'].split('|'))
+data={'hc':[{'day':i+1,'range':r[0],'title':r[1],'text':r[2],'ref':r[3],'questions':[{'number':n,'title':questions[n-1][0],'text':questions[n-1][1],'application':questions[n-1][2]} for n in range(int(r[0].split('—')[0]),int(r[0].split('—')[-1])+1)]} for i,r in enumerate(hc)],'bc':[{'article':i+1,'title':r[0],'text':r[1],'ref':r[2],'deeper':BELGIC[i]} for i,r in enumerate(bc)],'dort':dort}
 (out/'study.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
 print('Created study data:',len(hc),'Lord’s Days,',len(bc),'Belgic articles,',sum(len(x['items'].split('|')) for x in dort),'Dort articles')
