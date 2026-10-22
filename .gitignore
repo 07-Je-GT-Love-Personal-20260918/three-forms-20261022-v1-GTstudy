@@ -1,0 +1,7 @@
+.vercel/
+dist/.vercel/
+node_modules/
+*.pdf
+.env*
+working-notes/
+*.log
