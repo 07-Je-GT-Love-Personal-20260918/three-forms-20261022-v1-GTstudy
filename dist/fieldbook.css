@@ -1,0 +1,24 @@
+.scene-grid,.creed-drills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:20px 0}
+.scene{--scene-color:var(--mark-rose);padding:clamp(15px,3vw,30px);border:1px solid var(--line);border-radius:20px;background:linear-gradient(155deg,var(--scene-color),var(--paper) 60%)}
+.scene:nth-child(2){--scene-color:var(--mark-gold)}
+.scene:nth-child(3){--scene-color:var(--mark-teal)}
+.scene>span{display:grid;place-items:center;width:2em;height:2em;margin-bottom:16px;border-radius:15px;background:var(--scene-color);color:var(--ink);font-size:26px}
+.scene h3{font-size:clamp(18px,2.2vw,24px);margin:.5em 0}
+.scene small,.theology-path small{color:var(--muted)}
+.theology-path{padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;counter-reset:step}
+.theology-path li{counter-increment:step;position:relative;background:var(--soft);border-radius:14px;padding:16px;min-width:0}
+.theology-path li::before{content:counter(step,decimal-leading-zero);display:block;color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums}
+.theology-path li + li::after{content:"→";position:absolute;right:100%;top:40%;width:16px;text-align:center;color:var(--accent)}
+.theology-path b,.theology-path small{display:block}
+.field-film,.creed-drills details{padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--paper);min-width:0;overflow-wrap:anywhere}
+.field-film summary,.creed-drills summary{color:var(--accent);font-weight:750;cursor:pointer}
+.field-film video{display:block;width:100%;max-width:960px;height:auto;margin:14px auto;border-radius:12px;background:#163532}
+.note-palette{flex-wrap:wrap}
+mark.user-bold{background:transparent;color:inherit;font-weight:800}
+::highlight(gt-dash){color:var(--violet);text-decoration:underline dashed;text-underline-offset:.22em}
+.note-dash .note-quote{text-decoration:underline dashed var(--violet);text-underline-offset:.22em}
+.note-bold .note-quote{font-weight:850;border-inline-start:3px solid var(--accent);padding-inline-start:.45em}
+.note-filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.note-filter select{min-width:0;font-size:13px}
+@media(max-width:760px){.scene-grid,.creed-drills{grid-template-columns:1fr}.theology-path{grid-template-columns:repeat(2,minmax(0,1fr))}.theology-path li:nth-child(3)::after{content:none}}
+@media(max-width:380px){.theology-path{grid-template-columns:1fr}.theology-path li + li::after{content:none}.live-map-bar label,.live-map-bar select{width:100%}}

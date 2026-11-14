@@ -1,12 +1,12 @@
 # 归属于基督 · 三项联合信条研读
 
-**主题：三项联合信条｜时间：2026-10-24（Asia/Taipei）｜版本：v1.1.0｜标识：三项联合信条-20261024-v1.1.0-GTstudy**
+**主题：三项联合信条｜时间：2026-11-14（Asia/Taipei）｜版本：v1.2.0｜标识：三项联合信条-20261114-v1.2.0-GTstudy**
 
 ## 公开访问
 
 - GitHub Pages：https://07-je-gt-love-personal-20260918.github.io/three-forms-20261022-v1-GTstudy/
-- Surge：https://three-forms-20261022-v1-gtstudy.surge.sh
-- Vercel：https://three-forms-20261022-v1-gtstudy.vercel.app
+- Surge：https://three-forms-20261114-v120-gtstudy.surge.sh
+- Vercel：https://three-forms-20261114-v120-gtstudy.vercel.app
 - 源码：https://github.com/07-Je-GT-Love-Personal-20260918/three-forms-20261022-v1-GTstudy
 
 ## 内容与范围
@@ -19,7 +19,7 @@
 
 指定原文来源为 https://ccifellowship.org/books/book-of-praise 。该2015版中文手册有明确版权保留和禁止未经许可翻印的声明。本仓库提供原创释义与官方阅读入口，不复制六份文献的整套中文译文，不声称逐字校对完成。用户提供的PDF只在本地用于资料定位，不公开上传。本站将作者解读与信条原文严格区分。
 
-其他来源和版本注意事项见网页末尾。页面使用本机字体，不请求外部字体服务。核心页面、示意图、地理底图和脚本无第三方运行库依赖；真实在线地图仅在点击打开后请求Bing或OpenStreetMap。
+其他来源和版本注意事项见网页末尾。页面使用本机字体，不请求外部字体服务。核心页面、示意图、地理底图和脚本无第三方运行库依赖；真实在线地图仅在点击打开后请求OpenStreetMap、Esri 或 Bing。
 
 ## 开发
 
@@ -36,9 +36,9 @@ python -m http.server 8765 --directory dist
 
 - GitHub Pages：推送main后由GitHub Actions发布dist。仓库Pages的构建来源设置为GitHub Actions。
 - Vercel：本版通过已登录的CLI将dist发布至生产环境。后续在本目录运行 `vercel deploy dist --prod --yes --scope abners-projects-6f97a189`。本版没有承诺或配置Vercel Git自动部署。
-- Surge：使用已有登录会话运行 `npx surge ./dist three-forms-20261022-v1-gtstudy.surge.sh`。后续版本可更换域名版本号。
+- Surge：使用已有登录会话运行 `surge ./dist three-forms-20261114-v120-gtstudy.surge.sh`。后续版本可更换域名版本号。
 - 不将密钥、密码、登录状态、PDF参考材料提交到仓库。
-- 恢复：切换到版本标签 `v1.0.0-20261022`，检查后重新部署dist。当前版本恢复标签为 `v1.1.0-20261024`；上一版保留 `v1.0.0-20261022`。版本更新时修改README、网页版本标记并新增标签。
+- 恢复：切换到版本标签 `v1.0.0-20261022`，检查后重新部署dist。当前版本恢复标签为 `v1.2.0-20261114`；上一版保留 `v1.1.0-20261024`。版本更新时修改README、网页版本标记并新增标签。
 
 ## v1.1 使用方法与维护
 
@@ -52,6 +52,14 @@ python -m http.server 8765 --directory dist
 - 保留原有三个访问地址，避免书签失效；URL里的20261022/v1为项目创建标识，页面内标识和Git标签表达当前发布版本。
 
 ## 更新记录
+
+### v1.2.0 · 2026-11-14
+
+- 历史地理实验室保留本地底图与七城故事。站内可轮换 OpenStreetMap、Esri 卫星影像、Bing，地图独立入口另有 Google 和 Apple。更新频率和区域可达性由各提供方决定。
+- 三城故事卡、圣约研读流程、三份普世信经复述卡，以及站内 32 秒原制无声动画。视频按需播放，使用 Pillow 和 imageio-ffmpeg 运行 `python make_film.py` 可重制，另可通过 `GT_FILM_FONT` 指定支持简体中文的字体。
+- 新增实际文字加粗、紫色虚线、笔记分类筛选，沿用原有本机数据与备份格式。编辑标记分批处理，切换城市缩小笔记索引范围。
+- Vercel 发布后对本版部署设置 `three-forms-20261114-v120-gtstudy.vercel.app` 别名。Pages 保持原地址，固定版本可从 Git 标签恢复。
+
 
 ### v1.1.0 · 2026-10-24
 
