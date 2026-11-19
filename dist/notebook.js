@@ -1,7 +1,7 @@
 /* Notes remain local. Anchors use text hashes + exact offsets; stale anchors are not guessed. */
 (()=>{
 const $=s=>document.querySelector(s),KEY='gt-notes-v1';let notes=[];try{const n=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(n))notes=n.filter(valid)}catch{}let selection=null,undo=null;const blocks=new Map();
-function valid(n){return n&&typeof n.id==='string'&&typeof n.key==='string'&&typeof n.quote==='string'&&n.quote.length<=3000&&Number.isInteger(n.start)&&Number.isInteger(n.end)&&n.start>=0&&n.end>n.start&&['gold','teal','rose','line','bold','dash'].includes(n.color)&&typeof n.comment==='string'&&n.comment.length<=4000}
+function valid(n){return n&&typeof n.id==='string'&&typeof n.key==='string'&&typeof n.quote==='string'&&n.quote.length<=3000&&Number.isInteger(n.start)&&Number.isInteger(n.end)&&n.start>=0&&n.end>n.start&&['gold','teal','rose','line','bold','dash','ink'].includes(n.color)&&typeof n.comment==='string'&&n.comment.length<=4000}
 function hash(s){let h=2166136261;for(let i=0;i<s.length;i++)h=Math.imul(h^s.charCodeAt(i),16777619);return(h>>>0).toString(36)}
 function index(root=document){const cityOnly=root!==document;if(cityOnly){for(const [key,block] of blocks){if(!block.isConnected)blocks.delete(key)}}else blocks.clear();const seen=new Map();root.querySelectorAll(cityOnly?'p,dd':'main p,main dd,main td,main li').forEach(p=>{if(p.closest('#memory,#sources,.live-map')||p.classList.contains('ref')||p.classList.contains('map-caption'))return;let text=p.textContent;if(text.length<15)return;const section=p.closest('section')?.id||'main';const base=section+'-'+hash(text);const count=seen.get(base)||0;seen.set(base,count+1);const key=base+'-'+count;p.dataset.noteKey=key;blocks.set(key,p)});draw()}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(notes));return true}catch{window.gtToast('浏览器未能保存，请导出笔记备份；当前笔记仍保留在本页。');return false}}
@@ -49,7 +49,7 @@ function draw(){
  }
  for(const [block,entries] of bold){applyBold(block,entries);markedBlocks.add(block)}
  const supported=!!(window.CSS&&CSS.highlights&&window.Highlight);
- const ranges={gold:[],teal:[],rose:[],line:[],dash:[]};
+ const ranges={gold:[],teal:[],rose:[],line:[],dash:[],ink:[]};
  for(const [n,block] of live){
   if(n.color==='bold')continue;
   const range=rangeAt(block,n.start,n.end);

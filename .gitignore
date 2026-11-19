@@ -2,6 +2,8 @@
 dist/.vercel/
 node_modules/
 *.pdf
+!dist/assets/courses/*.pdf
+!dist/assets/creeds/*.pdf
 .env*
 working-notes/
 *.log

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三套讲义 · GTstudy</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="upgrade.css"><link rel="stylesheet" href="edition.css"></head>
+<body><main class="course-main" id="home">
+<a href="./">← 研读站主页</a>
+<header class="course-hero"><p class="course-kicker">讲义全文 · 三项联合信条</p><h1>从信条到课堂</h1><p>对照主日、条文与教义。可搜索全文、逐页阅读，也可跳到完整 PDF 查看插图、表格、脚注及原版排印。</p></header>
+<div id="bookTabs" class="book-tabs" aria-label="选择讲义"></div>
+<p id="courseStatus" role="status">正在读取课程目录…</p>
+<div class="course-layout" id="courseLayout" hidden>
+<details id="courseToc"><summary>☷ 本书目录</summary><div id="bookChapters"></div></details>
+<article class="course-reader" aria-labelledby="bookTitle">
+<header><h2 id="bookTitle"></h2><p id="bookAttribution" class="muted"></p><div class="course-links"><a id="originalPdf" target="_blank" rel="noopener">打开 PDF 原页 ↗</a><a id="returnGuide" href="./" hidden>回到对应信条导读 →</a></div></header>
+<details id="courseSearch"><summary>⌕ 搜索本书全文</summary><form id="bookSearch"><label for="courseTerm">关键词</label><input type="search" id="courseTerm" required maxlength="60"><button>搜索</button></form><p id="searchStatus" role="status"></p><ol id="courseHits"></ol><button id="moreHits" hidden>显示更多</button></details>
+<nav class="page-bar" aria-label="讲义分页"><button id="pagePrev" aria-label="上一页">← 上一页</button><form id="jumpPage"><label for="pageNumber">第</label><input type="number" id="pageNumber" min="1" required inputmode="numeric"><span id="pageTotal"></span><button>跳转</button></form><button id="pageNext" aria-label="下一页">下一页 →</button></nav>
+<h3 id="pageHeading" tabindex="-1"></h3><div id="courseText"></div>
+<button id="bookmarkPage" aria-pressed="false">☆ 保存阅读页</button><a id="resumePage" hidden>继续上次保存的位置 →</a>
+</article></div>
+<footer id="pageEnd"><a href="./">← 研读站主页</a><p>页码按 PDF 实体顺序。网页版保留可提取的文字，图像及版式以 PDF 为准。</p></footer>
+</main>
+<nav class="edition-dock" aria-label="快捷导航"><details><summary aria-label="展开快捷导航" title="快捷导航">⌘</summary><div><button id="goBack" aria-label="返回" title="返回">←</button><button id="goForward" aria-label="前进" title="前进">→</button><a href="./" aria-label="主页" title="主页">⌂</a><button id="goTop" aria-label="到顶部" title="到顶部">↑</button><button id="goBottom" aria-label="到底部" title="到底部">↓</button></div></details></nav>
+<script src="courses.js" defer></script></body></html>

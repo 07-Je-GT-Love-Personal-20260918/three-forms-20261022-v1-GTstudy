@@ -1,12 +1,12 @@
 # 归属于基督 · 三项联合信条研读
 
-**主题：三项联合信条｜时间：2026-11-16（Asia/Taipei）｜版本：v1.3.0｜标识：三项联合信条-20261116-v1.3.0-GTstudy**
+**主题：三项联合信条｜时间：2026-11-19（Asia/Taipei）｜版本：v1.4.0｜标识：三项联合信条-20261119-v1.4.0-GTstudy**
 
 ## 公开访问
 
 - GitHub Pages：https://07-je-gt-love-personal-20260918.github.io/three-forms-20261022-v1-GTstudy/
-- Surge：https://three-forms-20261116-v130-gtstudy.surge.sh
-- Vercel：https://three-forms-20261116-v130-gtstudy.vercel.app
+- Surge：https://three-forms-20261119-v140-gtstudy.surge.sh
+- Vercel：https://three-forms-20261119-v140-gtstudy.vercel.app
 - 源码：https://github.com/07-Je-GT-Love-Personal-20260918/three-forms-20261022-v1-GTstudy
 
 ## 内容与范围
@@ -17,7 +17,7 @@
 
 ## 原文与版权
 
-指定原文来源为 https://ccifellowship.org/books/book-of-praise 。该2015版中文手册有明确版权保留和禁止未经许可翻印的声明。本仓库提供原创释义与官方阅读入口，不复制六份文献的整套中文译文，不声称逐字校对完成。用户提供的PDF只在本地用于资料定位，不公开上传。本站将作者解读与信条原文严格区分。
+指定网站正文从 [六份文献入口](https://07-je-gt-love-personal-20260918.github.io/three-forms-20261022-v1-GTstudy/cci.html#official) 进入。导读各主日及各条文可直接跳转到对应原页。线上与 2015 版 PDF 有用字和标点差异，请按所需版本核查。用户确认授权发布三份原版讲义和 2015 版洁净阅读摘页。各讲义保留原有署名、版权声明及版式。
 
 其他来源和版本注意事项见网页末尾。页面使用本机字体，不请求外部字体服务。核心页面、示意图、地理底图和脚本无第三方运行库依赖；真实在线地图仅在点击打开后请求OpenStreetMap、Esri 或 Bing。
 
@@ -36,9 +36,9 @@ python -m http.server 8765 --directory dist
 
 - GitHub Pages：推送main后由GitHub Actions发布dist。仓库Pages的构建来源设置为GitHub Actions。
 - Vercel：本版通过已登录的CLI将dist发布至生产环境。旧域名可在本目录运行 `vercel deploy dist --prod --yes --scope abners-projects-6f97a189` 更新；本版公开域名的发布流程见下方 v1.2.0 更新记录。本版没有承诺或配置Vercel Git自动部署。
-- Surge：使用已有登录会话运行 `surge ./dist three-forms-20261116-v130-gtstudy.surge.sh`。后续版本可更换域名版本号。
-- 不将密钥、密码、登录状态、PDF参考材料提交到仓库。
-- 恢复：切换到版本标签 `v1.0.0-20261022`，检查后重新部署dist。当前版本恢复标签为 `v1.3.0-20261116`；上一版保留 `v1.2.0-20261114`。版本更新时修改README、网页版本标记并新增标签。
+- Surge：使用已有登录会话运行 `surge ./dist three-forms-20261119-v140-gtstudy.surge.sh`。后续版本可更换域名版本号。
+- 密钥、密码及登录状态由各平台的登录机制管理。
+- 恢复：切换到版本标签 `v1.0.0-20261022`，检查后重新部署dist。当前版本恢复标签为 `v1.4.0-20261119`，上一版为 `v1.3.0-20261116`。版本更新时修改README、网页版本标记并新增标签。
 
 ## v1.1 使用方法与维护
 
@@ -52,6 +52,15 @@ python -m http.server 8765 --directory dist
 - 保留原有三个访问地址，避免书签失效；URL里的20261022/v1为项目创建标识，页面内标识和Git标签表达当前发布版本。
 
 ## 更新记录
+
+### v1.4.0 · 2026-11-19
+
+- 三份讲义共 877 页。课程页支持目录、跳页、全书检索、单书书签和返回对应信条。原 PDF 与文字阅读均可访问。
+- 主目录可按主题、分组或全部条目展开。新增三大普世信经比较表、历史地图捷径、七种个人标记样式和洁净版入口。
+- 正文旁直达指定网站原页。指定站索引保留 651 项，专题页继续作为跨栏目阅读入口。
+- Vercel 发布至版本项目 `three-forms-20261119-v140-gtstudy`。GitHub Pages 随 main 更新，Surge 与 Vercel 提供本版本域名。
+- 重建讲义文字与索引可运行 `python make_courses.py <授权PDF目录>`。输入目录应含对应 11、12、13 三份文件，需安装 PyMuPDF。
+
 
 ### v1.3.0 · 2026-11-16
 
